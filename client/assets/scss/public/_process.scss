@@ -1,0 +1,26 @@
+@use '../custom' as *;
+@use '../components/mixins' as *;
+#how-we-work {
+    .card-body {
+        @include cardHoverTransition;
+        .process-number {
+            @include gradient;
+            width: 50px;
+            max-width: 50px;
+            padding: 10px 5px;
+            border-radius: 50%;
+            -webkit-border-radius: 50%;
+            -moz-border-radius: 50%;
+            -ms-border-radius: 50%;
+            -o-border-radius: 50%;
+            span {
+                color: $gray-100;
+                font-weight: 700;
+            }
+        }
+        &:hover {
+            background-color: $primary;
+            color: $gray-100;
+        }
+    }
+}

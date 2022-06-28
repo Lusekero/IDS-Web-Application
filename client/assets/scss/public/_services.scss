@@ -1,0 +1,107 @@
+    @use '../custom' as *;
+    @use '../components/mixins' as *;
+    #services {
+        .card {
+            position: relative;
+            img {
+                /* Aminate.css */
+                --animate-duration: 20s;
+            }
+            .card-body h5 {
+                position: absolute;
+                bottom: 220px;
+                background: $primary;
+                color: $gray-100 !important;
+                width: auto;
+                padding: 5px 15px 5px 5px;
+                border-top-right-radius: 20px;
+                border-bottom-right-radius: 20px;
+                @include media-breakpoint-up(sm) {
+                    position: relative;
+                    bottom: unset;
+                    margin-bottom: 15px;
+                }
+                @include media-breakpoint-up(lg) {
+                    position: absolute;
+                    bottom: 220px;
+                    margin-bottom: auto;
+                }
+            }
+        }
+        .service {
+            &__content {
+                .icon {
+                    color: $primary;
+                    font-size: 2.5rem;
+                }
+            }
+            &__image-right {
+                position: relative;
+                svg {
+                    @include infiniteAnimationDuration;
+                }
+                img {
+                    position: absolute;
+                    top: 10%;
+                    left: 15%;
+                    width: 70%;
+                    @include infiniteAnimationDuration;
+                }
+            }
+            &__image-left {
+                position: relative;
+                svg {
+                    @include infiniteAnimationDuration;
+                }
+                img {
+                    position: absolute;
+                    top: 10%;
+                    left: 15%;
+                    width: 70%;
+                    @include infiniteAnimationDuration;
+                }
+            }
+        }
+    }
+    
+    #service-qualities .card {
+        position: relative;
+        padding-top: 35px;
+        margin-bottom: 80px;
+        @include cardHoverTransition;
+        @include media-breakpoint-up(lg) {
+            margin-bottom: auto;
+        }
+        .image {
+            position: absolute;
+            top: -45px;
+            left: 20px;
+            background-color: $riseNshine;
+            width: 80px;
+            padding: 15px;
+            border-radius: 50%;
+            -webkit-border-radius: 50%;
+            -moz-border-radius: 50%;
+            -ms-border-radius: 50%;
+            -o-border-radius: 50%;
+            transition: top 1s ease;
+            -webkit-transition: top 1s ease;
+            -moz-transition: top 1s ease;
+            -ms-transition: top 1s ease;
+            -o-transition: top 1s ease;
+            img {
+                @include cardIconTransition;
+            }
+        }
+        &:hover {
+            background-color: $primary;
+            color: $gray-100;
+            border: none;
+            .image {
+                top: -55px;
+                img {
+                    @include cardIconRotate;
+                }
+            }
+        }
+    }

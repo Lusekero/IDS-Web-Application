@@ -1,0 +1,35 @@
+@use '../../custom' as *;
+@use '../../components/mixins' as *;
+#admin {
+    section.content {
+        .wrapper {
+            border-radius: 10px;
+            -webkit-border-radius: 10px;
+            -moz-border-radius: 10px;
+            -ms-border-radius: 10px;
+            -o-border-radius: 10px;
+            .info {
+                z-index: 2;
+                .section-header {
+                    overflow: hidden;
+                    h3 {
+                        @include gradientText;
+                        font-weight: 800;
+                    }
+                }
+                .table {
+                    min-width: 200%;
+                    @include media-breakpoint-up(sm) {
+                        min-width: 180%;
+                    }
+                    @include media-breakpoint-up(md) {
+                        min-width: 120%;
+                    }
+                    @include media-breakpoint-up(xl) {
+                        min-width: 100%;
+                    }
+                }
+            }
+        }
+    }
+}

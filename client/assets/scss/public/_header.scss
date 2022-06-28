@@ -1,0 +1,232 @@
+    @use '../custom' as *;
+    @use '../components/mixins' as *;
+    #header {
+        position: relative;
+        @include gradient;
+        .carousel {
+            padding: 5rem 0 0 0;
+            width: 100%;
+            min-height: 100vh;
+            margin-bottom: 0;
+            @include media-breakpoint-up(md) {
+                /** For tablet devices **/
+                padding: 7rem 0 0 0;
+            }
+            .carousel-item {
+                padding: 0 1rem;
+                h1 {
+                    /* Animate.css */
+                    --animate-delay: 0.8s;
+                }
+                a {
+                    display: block;
+                    text-decoration: none;
+                    color: $dark;
+                    width: 70%;
+                    &:hover {
+                        color: $gray-100 !important;
+                    }
+                    @include media-breakpoint-up(sm) {
+                        width: 50%;
+                    }
+                    @include media-breakpoint-up(sm) {
+                        width: 40%;
+                    }
+                    @include media-breakpoint-up(lg) {
+                        width: 30%;
+                    }
+                }
+                .hero-image {
+                    @include infiniteAnimationDuration;
+                }
+            }
+            .carousel-indicators {
+                z-index: 0 !important;
+                button {
+                    background: $gray-100;
+                    height: 0.585rem;
+                    width: 0.585rem;
+                    background-clip: initial;
+                    box-sizing: border-box;
+                    margin: 0.5rem;
+                    border: none;
+                    border-radius: 4px;
+                    -webkit-border-radius: 4px;
+                    -moz-border-radius: 4px;
+                    -ms-border-radius: 4px;
+                    -o-border-radius: 4px;
+                    @include easeTransition;
+                    &.active {
+                        width: 2rem;
+                    }
+                }
+            }
+        }
+        .drops-header {
+            padding-top: 200px;
+            padding-bottom: 100px;
+            .hero-text {
+                display: grid;
+                place-items: center;
+                position: relative;
+                h5 {
+                    position: relative;
+                    display: inline-block;
+                    color: $gray-100;
+                    font-family: 'Ubuntu Condensed', sans-serif;
+                    line-height: 4rem;
+                }
+                h1 {
+                    position: relative;
+                    color: $gray-100;
+                    line-height: 0;
+                    &::before,
+                    &::after {
+                        position: absolute;
+                        content: ' ';
+                        border-radius: 6px;
+                        -webkit-border-radius: 6px;
+                        -moz-border-radius: 6px;
+                        -ms-border-radius: 6px;
+                        -o-border-radius: 6px;
+                    }
+                    &::before {
+                        bottom: -60px;
+                        background: $gray-100;
+                        height: 10px;
+                        width: 100%;
+                    }
+                    &::after {
+                        bottom: -62px;
+                        background: $riseNshine;
+                        left: 0.5rem;
+                        height: 15px;
+                        width: 20%;
+                        animation: leftToRight 1.2s infinite alternate ease-in-out;
+                        -webkit-animation: leftToRight 1.2s infinite alternate ease-in-out;
+                    }
+                }
+            }
+            .drop {
+                @include gradient;
+                position: absolute;
+                width: 100px;
+                height: 100px;
+                border-radius: 51% 49% 48% 52% / 62% 44% 56% 38%;
+                -webkit-border-radius: 51% 49% 48% 52% / 62% 44% 56% 38%;
+                -moz-border-radius: 51% 49% 48% 52% / 62% 44% 56% 38%;
+                -ms-border-radius: 51% 49% 48% 52% / 62% 44% 56% 38%;
+                -o-border-radius: 51% 49% 48% 52% / 62% 44% 56% 38%;
+                opacity: 0.8;
+                /* Aminate.css */
+                --animate-duration: 11s;
+                @include media-breakpoint-up(md) {
+                    width: 110px;
+                    height: 110px;
+                }
+                @include media-breakpoint-up(lg) {
+                    width: 150px;
+                    height: 150px;
+                }
+                &::before {
+                    @include gradient;
+                    content: "";
+                    position: absolute;
+                    height: 100%;
+                    width: 100%;
+                    border-radius: 51% 49% 48% 52% / 62% 44% 56% 38%;
+                    box-shadow: -20px 30px 16px rgba($secondary, 0.4), -40px 60px 32px rgba($secondary, 0.4), inset -6px 6px 10px rgba($secondary, 0.4), inset 2px 6px 10px rgba($primary, 0.2), inset 20px -20px 22px rgba($gray-100, 0.8), inset 40px -40px 44px $primary;
+                }
+                &::after {
+                    content: "";
+                    position: absolute;
+                    background: $gray-100;
+                    border-radius: 44% 56% 46% 54% / 36% 50% 50% 64%;
+                    -webkit-border-radius: 44% 56% 46% 54% / 36% 50% 50% 64%;
+                    -moz-border-radius: 44% 56% 46% 54% / 36% 50% 50% 64%;
+                    -ms-border-radius: 44% 56% 46% 54% / 36% 50% 50% 64%;
+                    -o-border-radius: 44% 56% 46% 54% / 36% 50% 50% 64%;
+                    box-shadow: 16px 40px 0 -10px $gray-100;
+                    opacity: 0.8;
+                    height: 25px;
+                    width: 25px;
+                    left: 50px;
+                    top: 15px;
+                    @include media-breakpoint-up(md) {
+                        height: 30px;
+                        width: 30px;
+                    }
+                    @include media-breakpoint-up(lg) {
+                        height: 40px;
+                        width: 40px;
+                    }
+                    @include media-breakpoint-up(md) {
+                        left: 60px;
+                        top: 15px;
+                    }
+                    @include media-breakpoint-up(lg) {
+                        left: 85px;
+                        top: 30px;
+                    }
+                }
+            }
+            .drop-one {
+                left: 50px;
+                top: 30px;
+                @include media-breakpoint-up(md) {
+                    left: 60px;
+                    top: 30px;
+                }
+                @include media-breakpoint-up(lg) {
+                    left: 80px;
+                    top: 50px;
+                }
+                @include media-breakpoint-up(xl) {
+                    left: 110px;
+                    top: 60px;
+                }
+            }
+            .drop-two {
+                border-radius: 46% 50% 39% 54% / 56% 57% 50% 50%;
+                -webkit-border-radius: 46% 50% 39% 54% / 56% 57% 50% 50%;
+                -moz-border-radius: 46% 50% 39% 54% / 56% 57% 50% 50%;
+                -ms-border-radius: 46% 50% 39% 54% / 56% 57% 50% 50%;
+                -o-border-radius: 46% 50% 39% 54% / 56% 57% 50% 50%;
+                @include media-breakpoint-up(sm) {
+                    right: 40px;
+                    bottom: 120px;
+                }
+                @include media-breakpoint-up(md) {
+                    right: 40px;
+                    bottom: 150px;
+                }
+                @include media-breakpoint-up(lg) {
+                    right: 60px;
+                    bottom: 200px;
+                }
+                @include media-breakpoint-up(xl) {
+                    right: 110px;
+                    bottom: 250px;
+                }
+            }
+            .drop-two {
+                &::before {
+                    border-radius: 46% 50% 39% 54% / 56% 57% 50% 50%;
+                    -webkit-border-radius: 46% 50% 39% 54% / 56% 57% 50% 50%;
+                    -moz-border-radius: 46% 50% 39% 54% / 56% 57% 50% 50%;
+                    -ms-border-radius: 46% 50% 39% 54% / 56% 57% 50% 50%;
+                    -o-border-radius: 46% 50% 39% 54% / 56% 57% 50% 50%;
+                }
+            }
+        }
+        .wave-one,
+        .wave-two {
+            position: absolute;
+        }
+        .wave-one {
+            bottom: 10px;
+        }
+        .wave-two {
+            bottom: 0;
+        }
+    }

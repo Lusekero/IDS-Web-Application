@@ -1,0 +1,79 @@
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu+Condensed&family=Ubuntu&display=swap');
+// Variables
+//
+// Variables should follow the `$component-state-property-size` formula for
+// consistent naming. Ex: $nav-link-disabled-color and $modal-content-box-shadow-xs.
+// Color system
+// scss-docs-start color-variables
+$summer-sky: #34ace0;
+$blue: #1289A7;
+$riseNshine: #fbc531;
+$download-progress: #4cd137;
+$amber: #F59E0B;
+$sweet-garden: #55E6C1;
+$red: #E11D48;
+$green: #009432;
+// scss-docs-end color-variables
+// scss-docs-start gray-color-variables
+$white: #fff;
+$gray-100: #F1F5F9;
+$gray-200: #E2E8F0;
+$gray-300: #CBD5E1;
+$gray-400: #94A3B8;
+$gray-500: #64748B;
+$gray-600: #475569;
+$gray-700: #334155;
+$gray-800: #1E293B;
+$gray-900: #0F172A;
+$black: #1C1917;
+// scss-docs-end gray-color-variables
+// scss-docs-start theme-color-variables
+$primary: $summer-sky;
+$secondary: $blue;
+$success: $green;
+$warning: $amber;
+$danger: $red;
+$info: $sweet-garden;
+$light: $gray-100;
+$dark: $gray-800;
+// scss-docs-end theme-color-variables
+// Accordion
+
+/*$accordion-bg: $white;*/
+
+$accordion-bg: $white;
+$accordion-padding-y: 1.5rem;
+$accordion-padding-x: 1.35rem;
+$accordion-border-radius: 6px;
+$accordion-icon-width: 1.875rem;
+$accordion-icon-color: $primary;
+$accordion-icon-active-color: $riseNshine;
+$accordion-button-active-bg: $white;
+$accordion-button-active-color: $dark;
+$accordion-button-icon: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='#{$accordion-icon-color}'><path fill-rule='evenodd' d='M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z'/><path d='M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM8.5 4.5a.5.5 0 0 0-1 0v3h-3a.5.5 0 0 0 0 1h3v3a.5.5 0 0 0 1 0v-3h3a.5.5 0 0 0 0-1h-3v-3z'/></svg>");
+$accordion-button-active-icon: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='#{$accordion-icon-active-color}'><path fill-rule='evenodd' d='M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z'/><path d='M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM4.5 7.5a.5.5 0 0 0 0 1h7a.5.5 0 0 0 0-1h-7z'/></svg>");
+// TRANSITION
+$transitionTime: 0.6s;
+$transitionFunction: ease-in-out;
+$carousel-transition-duration: 0.8s;
+// BODY COLOR
+$body-bg: $gray-100;
+$body-color: $gray-500;
+// FONT FAMILY
+$font-family-sans-serif: "Ubuntu",
+"Courgette",
+system-ui,
+-apple-system,
+"Segoe UI",
+Roboto,
+"Helvetica Neue",
+Arial,
+"Noto Sans",
+"Liberation Sans",
+sans-serif,
+"Apple Color Emoji",
+"Segoe UI Emoji",
+"Segoe UI Symbol",
+"Noto Color Emoji";
+// IMPORT BOOTSTRAP 5
+@import "~bootstrap/scss/bootstrap.scss";

@@ -1,0 +1,76 @@
+        @use '../custom' as *;
+        @use '../components/mixins' as *;
+        #footer {
+            background-color: $gray-900;
+            .heading-wrapper {
+                @include media-breakpoint-up(md) {
+                    margin-top: -60px;
+                }
+                @include media-breakpoint-up(xl) {
+                    margin-top: -140px;
+                }
+            }
+            .container {
+                .contact {
+                    position: relative;
+                    padding-left: 35px;
+                    i {
+                        position: absolute;
+                        top: -0.15rem;
+                        left: 0;
+                        font-size: 1.35rem;
+                        @include media-breakpoint-up(xl) {
+                            top: -0.25rem;
+                        }
+                    }
+                    a {
+                        text-decoration: none !important;
+                        color: $body-color;
+                        transition: all 0.5s ease;
+                        -webkit-transition: all 0.5s ease;
+                        -moz-transition: all 0.5s ease;
+                        -ms-transition: all 0.5s ease;
+                        -o-transition: all 0.5s ease;
+                        &:hover {
+                            font-weight: 700;
+                            letter-spacing: 1px;
+                        }
+                    }
+                }
+                ul {
+                    position: relative;
+                    list-style: none !important;
+                    margin-left: 0;
+                    padding-left: 0;
+                    li {
+                        a {
+                            text-decoration: none !important;
+                            color: $body-color;
+                            position: relative;
+                            transition: all 0.5s ease;
+                            -webkit-transition: all 0.5s ease;
+                            -moz-transition: all 0.5s ease;
+                            -ms-transition: all 0.5s ease;
+                            -o-transition: all 0.5s ease;
+                            &::before {
+                                content: "\203A";
+                                font-family: 'ETMODULES';
+                                margin-right: 12px;
+                                font-size: 1.25rem;
+                                font-weight: 800;
+                            }
+                            &:hover {
+                                font-weight: 700;
+                                margin-left: 10px;
+                                letter-spacing: 1px;
+                            }
+                        }
+                    }
+                }
+                img {
+                    margin-top: -20px;
+                    width: 50px;
+                    max-width: 50px;
+                }
+            }
+        }

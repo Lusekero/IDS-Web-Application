@@ -1,0 +1,84 @@
+@use '../custom' as *;
+@use '../components/mixins' as *;
+#who-we-are {
+    .why-us {
+        ul {
+            position: relative;
+            list-style: none !important;
+            margin-left: 0;
+            padding-left: 0;
+            li {
+                i {
+                    color: $primary;
+                    font-size: 1.5rem;
+                    margin-right: 15px;
+                }
+            }
+        }
+    }
+    .blob-img {
+        position: relative;
+        svg {
+            @include infiniteAnimationDuration;
+        }
+        img {
+            position: absolute;
+            top: 25px;
+            left: 10%;
+            @include infiniteAnimationDuration;
+        }
+    }
+}
+
+#statements {
+    background: $gray-100;
+    .objectives {
+        background: $riseNshine;
+        color: $gray-900;
+        ul {
+            position: relative;
+            list-style: none !important;
+            margin-left: 0;
+            padding-left: 0;
+            li {
+                i {
+                    color: $gray-900;
+                    font-size: 1.5rem;
+                    margin-right: 15px;
+                }
+                p {
+                    margin-top: 5px;
+                }
+            }
+        }
+    }
+}
+
+#values {
+    .card {
+        @include cardHoverTransition;
+        .icon {
+            width: 60px;
+            max-width: 60px;
+            margin-left: 1rem;
+            background-color: $riseNshine;
+            border-radius: 50%;
+            -webkit-border-radius: 50%;
+            -moz-border-radius: 50%;
+            -ms-border-radius: 50%;
+            -o-border-radius: 50%;
+            img {
+                @include cardIconTransition;
+            }
+        }
+        &:hover {
+            background-color: $primary;
+            color: $gray-100;
+            .icon {
+                img {
+                    @include cardIconRotate;
+                }
+            }
+        }
+    }
+}

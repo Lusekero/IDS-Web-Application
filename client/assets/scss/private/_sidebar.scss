@@ -1,0 +1,401 @@
+@use '../custom' as *;
+@use '../components/mixins' as *;
+#admin {
+    position: relative;
+    /* SIDEBAR START */
+    .sidebar {
+        @include gradient;
+        position: fixed;
+        top: 0;
+        bottom: 0;
+        left: -80vw;
+        width: 80vw;
+        max-width: 80vw;
+        min-height: 100vh;
+        padding: 0;
+        z-index: 4;
+        overflow-x: hidden !important;
+        transition: left 650ms ease, z-index 800ms ease;
+        -webkit-transition: left 650ms ease, z-index 800ms ease;
+        -moz-transition: left 650ms ease, z-index 800ms ease;
+        -ms-transition: left 650ms ease, z-index 800ms ease;
+        -o-transition: left 650ms ease, z-index 800ms ease;
+        @include media-breakpoint-up(sm) {
+            left: -50vw;
+            width: 50vw;
+            max-width: 50vw;
+        }
+        @include media-breakpoint-up(md) {
+            left: -40vw;
+            width: 40vw;
+            max-width: 40vw;
+        }
+        @include media-breakpoint-up(lg) {
+            left: 0;
+            width: 6vw;
+            max-width: 6vw;
+            transition: width 650ms ease, max-width 650ms ease;
+            -webkit-transition: width 650ms ease, max-width 650ms ease;
+            -moz-transition: width 650ms ease, max-width 650ms ease;
+            -ms-transition: width 650ms ease, max-width 650ms ease;
+            -o-transition: width 650ms ease, max-width 650ms ease;
+        }
+        @include media-breakpoint-up(xl) {
+            width: 5vw;
+            max-width: 5vw;
+        }
+        .logo {
+            color: $gray-100;
+            img {
+                width: 50px;
+                max-width: 50px;
+                transition: width 650ms ease, max-width 650ms ease;
+                -webkit-transition: width 650ms ease, max-width 650ms ease;
+                -moz-transition: width 650ms ease, max-width 650ms ease;
+                -ms-transition: width 650ms ease, max-width 650ms ease;
+                -o-transition: width 650ms ease, max-width 650ms ease;
+            }
+            h1 {
+                visibility: hidden;
+                pointer-events: none;
+                transition: visibility 400ms ease-in-out;
+                -webkit-transition: visibility 400ms ease-in-out;
+                -moz-transition: visibility 400ms ease-in-out;
+                -ms-transition: visibility 400ms ease-in-out;
+                -o-transition: visibility 400ms ease-in-out;
+            }
+        }
+        .close-sidebar {
+            position: absolute;
+            top: 2rem;
+            right: 0;
+            bottom: auto;
+            left: auto;
+            background-color: $gray-100;
+            width: 30px;
+            max-width: 30px;
+            border-top-left-radius: 20px;
+            border-bottom-left-radius: 20px;
+            span {
+                @include gradientText;
+                i {
+                    font-size: 1.25rem;
+                }
+            }
+        }
+        ul {
+            padding: 0.5rem 0 0.5rem 0.5rem !important;
+            list-style: none !important;
+            li {
+                width: 100% !important;
+                min-width: 100% !important;
+                .menu-link {
+                    border-top-left-radius: 20px;
+                    border-bottom-left-radius: 20px;
+                    .icon {
+                        margin-right: 10px;
+                    }
+                    .title {
+                        position: absolute;
+                        top: auto;
+                        right: auto;
+                        bottom: auto;
+                        left: auto;
+                        pointer-events: none;
+                        transform: scale(0, 0);
+                        -webkit-transform: scale(0, 0);
+                        -moz-transform: scale(0, 0);
+                        -ms-transform: scale(0, 0);
+                        -o-transform: scale(0, 0);
+                        transition: transform 650ms ease;
+                        -webkit-transition: transform 650ms ease;
+                        -moz-transition: transform 650ms ease;
+                        -ms-transition: transform 650ms ease;
+                        -o-transition: transform 650ms ease;
+                        transition-delay: 200ms;
+                    }
+                    &:hover,
+                    &.nuxt-link-exact-active.nuxt-link-active {
+                        background-color: $gray-100;
+                        color: $primary;
+                        font-weight: 700;
+                        transition: background-color 0.1s ease-in-out, color 0.1s ease-in-out, font-weight 0.1s ease-in-out;
+                        -webkit-transition: background-color 0.1s ease-in-out, color 0.1s ease-in-out, font-weight 0.1s ease-in-out;
+                        -moz-transition: background-color 0.1s ease-in-out, color 0.1s ease-in-out, font-weight 0.1s ease-in-out;
+                        -ms-transition: background-color 0.1s ease-in-out, color 0.1s ease-in-out, font-weight 0.1s ease-in-out;
+                        -o-transition: background-color 0.1s ease-in-out, color 0.1s ease-in-out, font-weight 0.1s ease-in-out;
+                        /*OutsideCurve*/
+                        &::before,
+                        &::after {
+                            position: absolute;
+                            content: '';
+                            right: 0;
+                            width: 50px;
+                            height: 50px;
+                            background: transparent;
+                            pointer-events: none !important;
+                            border-radius: 50%;
+                            -webkit-border-radius: 50%;
+                            -moz-border-radius: 50%;
+                            -ms-border-radius: 50%;
+                            -o-border-radius: 50%;
+                            border-right: 0;
+                            box-sizing: border-box;
+                            -webkit-box-sizing: border-box;
+                            -moz-box-sizing: border-box;
+                        }
+                        &::before {
+                            top: -50px;
+                            box-shadow: 35px 35px 0 10px $gray-100;
+                        }
+                        &::after {
+                            bottom: -50px;
+                            box-shadow: 35px -35px 0 10px $gray-100;
+                        }
+                    }
+                }
+                &#drop-down {
+                    .accordion-item {
+                        position: relative !important;
+                        background-color: transparent;
+                        border-top-left-radius: 20px;
+                        border-bottom-left-radius: 20px;
+                        &:hover,
+                        &.opened {
+                            background-color: $gray-100;
+                            transition: background-color 0.1s ease-in-out;
+                            -webkit-transition: background-color 0.1s ease-in-out;
+                            -moz-transition: background-color 0.1s ease-in-out;
+                            -ms-transition: background-color 0.1s ease-in-out;
+                            -o-transition: background-color 0.1s ease-in-out;
+                            .accordion-button {
+                                position: relative;
+                                color: $primary;
+                                font-weight: 700;
+                                transition: color 0.1s ease-in-out, font-weight 0.1s ease-in-out;
+                                -webkit-transition: color 0.1s ease-in-out, font-weight 0.1s ease-in-out;
+                                -moz-transition: color 0.1s ease-in-out, font-weight 0.1s ease-in-out;
+                                -ms-transition: color 0.1s ease-in-out, font-weight 0.1s ease-in-out;
+                                -o-transition: color 0.1s ease-in-out, font-weight 0.1s ease-in-out;
+                            }
+                            .accordion-body {
+                                overflow: hidden;
+                                .accordion-menu-link {
+                                    color: $primary;
+                                    &:hover,
+                                    &.nuxt-link-exact-active.nuxt-link-active {
+                                        font-weight: 700;
+                                    }
+                                }
+                            }
+                            /* Outside Curve */
+                            &::before,
+                            &::after {
+                                position: absolute;
+                                content: '';
+                                right: 0;
+                                width: 50px;
+                                height: 50px;
+                                background: transparent;
+                                pointer-events: none !important;
+                                border-radius: 50%;
+                                -webkit-border-radius: 50%;
+                                -moz-border-radius: 50%;
+                                -ms-border-radius: 50%;
+                                -o-border-radius: 50%;
+                            }
+                            &::before {
+                                top: -50px;
+                                box-shadow: 35px 35px 0 10px $gray-100;
+                            }
+                            &::after {
+                                bottom: -50px;
+                                box-shadow: 35px -35px 0 10px $gray-100;
+                            }
+                        }
+                        .accordion-button {
+                            position: relative;
+                            background-color: transparent;
+                            color: $gray-100;
+                            font-size: 1.15rem;
+                            padding: 0.65rem;
+                            box-shadow: none !important;
+                            .icon {
+                                margin-right: 12px;
+                            }
+                            .title {
+                                position: absolute;
+                                top: auto;
+                                right: auto;
+                                bottom: auto;
+                                left: 38px;
+                                pointer-events: none;
+                                transform: scale(0, 0);
+                                -webkit-transform: scale(0, 0);
+                                -moz-transform: scale(0, 0);
+                                -ms-transform: scale(0, 0);
+                                -o-transform: scale(0, 0);
+                                transition: transform 650ms ease;
+                                -webkit-transition: transform 650ms ease;
+                                -moz-transition: transform 650ms ease;
+                                -ms-transition: transform 650ms ease;
+                                -o-transition: transform 650ms ease;
+                                transition-delay: 200ms;
+                            }
+                            &::after {
+                                width: 1.375rem;
+                                height: 1.375rem;
+                                background-size: 1.375rem;
+                                visibility: hidden;
+                                opacity: 0;
+                                pointer-events: none;
+                                transition: visibility 650ms ease-in-out, opacity 650ms ease-in-out;
+                                -webkit-transition: visibility 650ms ease-in-out, opacity 650ms ease-in-out;
+                                -moz-transition: visibility 650ms ease-in-out, opacity 650ms ease-in-out;
+                                -ms-transition: visibility 650ms ease-in-out, opacity 650ms ease-in-out;
+                                -o-transition: visibility 650ms ease-in-out, opacity 650ms ease-in-out;
+                            }
+                            &:focus {
+                                border-color: none !important;
+                                box-shadow: none !important;
+                            }
+                        }
+                        .accordion-body {
+                            padding: 0 !important;
+                            ul li {
+                                margin-left: 10px;
+                                @include media-breakpoint-up(lg) {
+                                    margin-left: 5px;
+                                }
+                                @include media-breakpoint-up(xl) {
+                                    margin-left: 10px;
+                                }
+                                .accordion-menu-link {
+                                    font-size: 1rem !important;
+                                    .icon {
+                                        margin-right: 10px;
+                                    }
+                                    .title {
+                                        position: absolute;
+                                        top: auto;
+                                        right: auto;
+                                        bottom: auto;
+                                        left: auto;
+                                        pointer-events: none;
+                                        transform: scale(0, 0);
+                                        -webkit-transform: scale(0, 0);
+                                        -moz-transform: scale(0, 0);
+                                        -ms-transform: scale(0, 0);
+                                        -o-transform: scale(0, 0);
+                                        transition: transform 650ms ease;
+                                        -webkit-transition: transform 650ms ease;
+                                        -moz-transition: transform 650ms ease;
+                                        -ms-transition: transform 650ms ease;
+                                        -o-transition: transform 650ms ease;
+                                        transition-delay: 200ms;
+                                    }
+                                }
+                                &:nth-child(2) {
+                                    animation-delay: 0.3s;
+                                }
+                                &:nth-child(3) {
+                                    animation-delay: 0.5s;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        ul li .menu-link,
+        ul li .accordion-menu-link {
+            display: block;
+            position: relative;
+            color: $gray-100;
+            font-size: 1.15rem;
+            text-decoration: none !important;
+            width: 100% !important;
+            min-width: 100% !important;
+            .icon {
+                margin-right: 10px;
+            }
+        }
+        &.open-sidebar {
+            left: 0;
+            @include media-breakpoint-up(lg) {
+                width: 25vw;
+                max-width: 25vw;
+            }
+            @include media-breakpoint-up(xl) {
+                width: 20vw;
+                max-width: 20vw;
+            }
+            .logo {
+                img {
+                    width: 80px;
+                    max-width: 80px;
+                }
+                h1 {
+                    display: inline-block;
+                    visibility: visible;
+                    pointer-events: auto;
+                }
+            }
+            ul {
+                li {
+                    .menu-link {
+                        .icon {
+                            margin-right: 10px;
+                        }
+                        .title {
+                            pointer-events: auto;
+                            transform: scale(1, 1);
+                            -webkit-transform: scale(1, 1);
+                            -moz-transform: scale(1, 1);
+                            -ms-transform: scale(1, 1);
+                            -o-transform: scale(1, 1);
+                        }
+                    }
+                    &#drop-down {
+                        .accordion-button {
+                            .icon {
+                                margin-right: 12px;
+                            }
+                            .title {
+                                pointer-events: auto;
+                                transform: scale(1, 1);
+                                -webkit-transform: scale(1, 1);
+                                -moz-transform: scale(1, 1);
+                                -ms-transform: scale(1, 1);
+                                -o-transform: scale(1, 1);
+                            }
+                            &::after {
+                                visibility: visible;
+                                opacity: 1;
+                                pointer-events: auto;
+                            }
+                        }
+                        .accordion-body {
+                            ul li {
+                                .accordion-menu-link {
+                                    .icon {
+                                        margin-right: 10px;
+                                    }
+                                    .title {
+                                        pointer-events: auto;
+                                        transform: scale(1, 1);
+                                        -webkit-transform: scale(1, 1);
+                                        -moz-transform: scale(1, 1);
+                                        -ms-transform: scale(1, 1);
+                                        -o-transform: scale(1, 1);
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+    /* SIDEBAR END */
+}

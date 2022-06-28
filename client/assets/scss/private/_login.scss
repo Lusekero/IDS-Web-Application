@@ -1,0 +1,53 @@
+    @use '../custom' as *;
+    @use '../components/mixins' as *;
+    #login {
+        .container {
+            /*padding: 0 180px;*/
+            .card {
+                position: relative;
+                transform: translateY(10%);
+                -webkit-transform: translateY(10%);
+                -moz-transform: translateY(10%);
+                -ms-transform: translateY(10%);
+                -o-transform: translateY(10%);
+                @include media-breakpoint-up(sm) {
+                    width: 400px;
+                    max-width: 400px;
+                }
+                @include media-breakpoint-up(md) {
+                    width: 800px;
+                    max-width: 800px;
+                    transform: translateY(25%);
+                    -webkit-transform: translateY(25%);
+                    -moz-transform: translateY(25%);
+                    -ms-transform: translateY(25%);
+                    -o-transform: translateY(25%);
+                }
+                @include media-breakpoint-up(lg) {
+                    transform: translateY(30%);
+                    -webkit-transform: translateY(30%);
+                    -moz-transform: translateY(30%);
+                    -ms-transform: translateY(30%);
+                    -o-transform: translateY(30%);
+                }
+                img {
+                    @include infiniteAnimationDuration;
+                }
+                .logo {
+                    @include gradient;
+                    position: absolute;
+                    top: -35px;
+                    left: 50px;
+                    width: 70px;
+                    max-width: 70px;
+                    height: auto;
+                    padding: 10px;
+                    border-radius: 50%;
+                    -webkit-border-radius: 50%;
+                    -moz-border-radius: 50%;
+                    -ms-border-radius: 50%;
+                    -o-border-radius: 50%;
+                }
+            }
+        }
+    }

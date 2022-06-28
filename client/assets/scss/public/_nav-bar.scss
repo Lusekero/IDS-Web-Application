@@ -1,0 +1,222 @@
+@use '../custom' as *;
+@use '../components/mixins' as *;
+nav {
+    @include gradient;
+    position: relative;
+    .navbar-brand {
+        cursor: pointer;
+        img {
+            width: 70px;
+        }
+    }
+    .navbar-collapse {
+        @include gradient;
+        position: fixed;
+        top: 0;
+        right: -85%;
+        bottom: 0;
+        left: auto;
+        width: 85%;
+        height: 100%;
+        min-height: 100vh;
+        z-index: 2;
+        transition: right 650ms ease;
+        -webkit-transition: right 650ms ease;
+        -moz-transition: right 650ms ease;
+        -ms-transition: right 650ms ease;
+        -o-transition: right 650ms ease;
+        @include media-breakpoint-only(sm) {
+            width: 60vw;
+        }
+        @include media-breakpoint-only(md) {
+            width: 40%;
+        }
+        @include media-breakpoint-up(lg) {
+            position: relative;
+            right: auto;
+            width: auto;
+            height: auto;
+            min-height: auto;
+            background: transparent !important;
+        }
+        ul {
+            li {
+                min-width: 5rem;
+                text-align: center;
+                margin-bottom: 10px;
+                .nav-link {
+                    position: relative;
+                    color: $gray-200 !important;
+                    font-size: 1.085rem;
+                    font-weight: 600;
+                    text-transform: capitalize;
+                    line-height: 2.5rem;
+                    &::before {
+                        content: "";
+                        position: absolute;
+                        bottom: 0;
+                        top: auto;
+                        right: 0;
+                        left: 0;
+                        margin: auto;
+                        height: 5px;
+                        width: 0%;
+                        background-color: $gray-200;
+                        border-top-left-radius: 5px;
+                        border-top-right-radius: 5px;
+                        transition: width 0.5s;
+                        -webkit-transition: width 0.5s;
+                        -moz-transition: width 0.5s;
+                        -ms-transition: width 0.5s;
+                        -o-transition: width 0.5s;
+                    }
+                    &.nuxt-link-exact-active.nuxt-link-active,
+                    &:hover {
+                        &::before {
+                            width: 100%;
+                        }
+                    }
+                    &.nuxt-link-exact-active.nuxt-link-active {
+                        &::before {
+                            background-color: $riseNshine;
+                        }
+                    }
+                    @include media-breakpoint-up(lg) {
+                        line-height: 3.985rem;
+                    }
+                }
+                @include media-breakpoint-up(lg) {
+                    padding: 0 0.7rem;
+                    margin-bottom: 0px !important;
+                }
+            }
+        }
+        a {
+            text-decoration: none !important;
+            color: $dark;
+        }
+        &.open-menu {
+            right: 0;
+        }
+    }
+    .menu-toggler {
+        position: absolute;
+        top: auto;
+        right: 40px;
+        background-color: $gray-200;
+        padding: 0.5rem;
+        z-index: 3;
+        border-radius: 4px;
+        -webkit-border-radius: 4px;
+        -moz-border-radius: 4px;
+        -ms-border-radius: 4px;
+        -o-border-radius: 4px;
+        .wrapper {
+            position: relative !important;
+            width: 2.25rem;
+            height: 1.85rem;
+            span {
+                display: block;
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                background: $primary;
+                width: 100%;
+                height: 0.25rem;
+                border-radius: 4px;
+                -webkit-border-radius: 4px;
+                -moz-border-radius: 4px;
+                -ms-border-radius: 4px;
+                -o-border-radius: 4px;
+                transform: translate(-50%, -50%);
+                -webkit-transform: translate(-50%, -50%);
+                -moz-transform: translate(-50%, -50%);
+                -ms-transform: translate(-50%, -50%);
+                -o-transform: translate(-50%, -50%);
+                transition: transform 0.5s ease-in-out, width 0.5s ease-in-out;
+                -webkit-transition: transform 0.5s ease-in-out, width 0.5s ease-in-out;
+                -moz-transition: transform 0.5s ease-in-out, width 0.5s ease-in-out;
+                -ms-transition: transform 0.5s ease-in-out, width 0.5s ease-in-out;
+                -o-transition: transform 0.5s ease-in-out, width 0.5s ease-in-out;
+                &:nth-child(1) {
+                    width: 50%;
+                    transform: translate(-100%, -0.75rem);
+                    -webkit-transform: translate(-100%, -0.75rem);
+                    -moz-transform: translate(-100%, -0.75rem);
+                    -ms-transform: translate(-100%, -0.75rem);
+                    -o-transform: translate(-100%, -0.75rem);
+                    transform-origin: 0 0;
+                }
+                &:nth-child(3) {
+                    width: 50%;
+                    right: 0;
+                    left: auto;
+                    transform: translate(0, 0.5rem);
+                    -webkit-transform: translate(0, 0.5rem);
+                    -moz-transform: translate(0, 0.5rem);
+                    -ms-transform: translate(0, 0.5rem);
+                    -o-transform: translate(0, 0.5rem);
+                    transform-origin: 100% 0;
+                }
+            }
+        }
+        &.open-menu {
+            .wrapper {
+                span {
+                    &:nth-child(1) {
+                        transform: translate(-8%, -0.125rem) rotate(-45deg);
+                        -webkit-transform: translate(-8%, -0.125rem) rotate(-45deg);
+                        -moz-transform: translate(-8%, -0.125rem) rotate(-45deg);
+                        -ms-transform: translate(-8%, -0.125rem) rotate(-45deg);
+                        -o-transform: translate(-8%, -0.125rem) rotate(-45deg);
+                    }
+                    &:nth-child(2) {
+                        transform: translate(-50%, -50%) rotate(45deg);
+                        -webkit-transform: translate(-50%, -50%) rotate(45deg);
+                        -moz-transform: translate(-50%, -50%) rotate(45deg);
+                        -ms-transform: translate(-50%, -50%) rotate(45deg);
+                        -o-transform: translate(-50%, -50%) rotate(45deg);
+                    }
+                    &:nth-child(3) {
+                        transform: translate(-110%, -0.085rem) rotate(-45deg);
+                        -webkit-transform: translate(-110%, -0.085rem) rotate(-45deg);
+                        -moz-transform: translate(-110%, -0.085rem) rotate(-45deg);
+                        -ms-transform: translate(-110%, -0.085rem) rotate(-45deg);
+                        -o-transform: translate(-110%, -0.085rem) rotate(-45deg);
+                    }
+                }
+            }
+        }
+    }
+    .overlay {
+        position: fixed;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: -100%;
+        width: 100%;
+        height: 100%;
+        min-height: 100vh;
+        background: rgba($primary, 0.9);
+        z-index: 1;
+        transition: left 650ms ease;
+        -webkit-transition: left 650ms ease;
+        -moz-transition: left 650ms ease;
+        -ms-transition: left 650ms ease;
+        -o-transition: left 650ms ease;
+        &.open-menu {
+            left: 0;
+        }
+    }
+    &.sticky-nav {
+        @include fixedNavGradient;
+        position: fixed !important;
+        top: 0;
+        width: 100%;
+        z-index: 1;
+        box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.3);
+        animation-name: navbarFade;
+        animation-duration: 650ms;
+        animation-fill-mode: both;
+    }
+}

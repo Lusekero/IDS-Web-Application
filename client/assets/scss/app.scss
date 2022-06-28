@@ -1,0 +1,25 @@
+// IMPORT CUSTOM VARIABLES
+@use 'custom';
+// IMPORT COMPONENTS PARTIALS
+@use 'components/animations';
+@use 'components/buttons';
+@use 'components/mixins';
+@use 'components/typography';
+// IMPORT FRONTEND SECTION PARTIALS
+@use 'public/shared';
+@use 'public/nav-bar';
+@use 'public/header';
+@use 'public/about';
+@use 'public/services';
+@use 'public/approach';
+@use 'public/process';
+@use 'public/portfolio';
+@use 'public/why-us';
+@use 'public/testimonials';
+@use 'public/faqs';
+@use 'public/forms';
+@use 'public/contact';
+@use 'public/footer';
+// IMPORT FRONTEND SECTION PARTIALS
+@use 'private/login';
+@use 'private/admin';

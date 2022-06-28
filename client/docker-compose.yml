@@ -1,0 +1,20 @@
+version: '3.8'
+services:
+  ids-client:
+    build: .
+    container_name: nuxt-docker
+
+    restart: unless-stopped
+    ports:
+      - '3000:3000'
+    environment:
+      - ENV NODE_ENV=development
+      - NUXT_PORT=3000
+    command: 'npm run dev'
+    volumes:
+      - ./:/usr/src/ids-client
+    networks:
+      - nuxt-network
+networks:
+  nuxt-network:
+    driver: bridge

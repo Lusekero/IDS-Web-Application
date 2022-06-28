@@ -1,0 +1,79 @@
+@use '../custom' as *;
+@use '../components/mixins' as *;
+form {
+    .avator {
+        width: 250px;
+        overflow: hidden;
+        border: 8px solid rgba($gray-300, 0.6);
+        border-radius: 50%;
+        -webkit-border-radius: 50%;
+        -moz-border-radius: 50%;
+        -ms-border-radius: 50%;
+        -o-border-radius: 50%;
+    }
+    .input-wrap {
+        position: relative;
+        input,
+        textarea {
+            background: $gray-100;
+            display: block;
+            width: 100%;
+            padding: 20px 15px 12px;
+            border: none !important;
+            border-radius: 10px;
+            -webkit-border-radius: 10px;
+            -moz-border-radius: 10px;
+            -ms-border-radius: 10px;
+            -o-border-radius: 10px;
+            &:focus,
+            &.not-empty {
+                outline: none !important;
+                box-shadow: none !important;
+            }
+            &::-webkit-input-placeholder {
+                color: $gray-400;
+                text-align: right;
+                font-style: italic;
+                margin-right: 20px !important;
+            }
+        }
+        label {
+            position: absolute;
+            left: 20px;
+            bottom: 10px;
+            line-height: 2.5rem;
+            cursor: text;
+            text-transform: capitalize;
+            transition: transform 0.2s ease-in-out;
+            -webkit-transition: transform 0.2s ease-in-out;
+            -moz-transition: transform 0.2s ease-in-out;
+            -ms-transition: transform 0.2s ease-in-out;
+            -o-transition: transform 0.2s ease-in-out;
+        }
+        /*label[for="fullName"],
+        label[for="email"],
+        label[for="subject"],*/
+        label[for="verify-password"] {
+            top: 8px !important;
+        }
+        label[for="message"] {
+            top: 10px !important;
+            line-height: 2.5rem !important;
+        }
+        input:focus+label,
+        input.not-empty+label,
+        input:not(:placeholder-shown)+label,
+        textarea:focus+label,
+        textarea.not-empty+label,
+        textarea:not(:placeholder-shown)+label {
+            color: $green;
+            font-size: 0.895rem;
+            font-weight: 700;
+            transform: translateY(-15px);
+            -webkit-transform: translateY(-15px);
+            -moz-transform: translateY(-15px);
+            -ms-transform: translateY(-15px);
+            -o-transform: translateY(-15px);
+        }
+    }
+}

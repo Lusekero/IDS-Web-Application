@@ -1,0 +1,78 @@
+@use '../custom' as *;
+@use '../components/mixins' as *;
+#approach {
+    position: relative;
+    overflow: hidden;
+    height: 140vh;
+    @include media-breakpoint-up(sm) {
+        height: 130vh;
+    }
+    @include media-breakpoint-up(lg) {
+        height: 160vh;
+    }
+    .container-fluid {
+        .approach-image {
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            margin: auto;
+            height: 100%;
+            background: linear-gradient(rgba(8, 8, 8, 0.5), rgba(0, 0, 0, 0.8)), url("~assets/images/agree.jpg") center no-repeat;
+            background-size: cover;
+            z-index: -1;
+            animation: zoom 25s infinite;
+            -webkit-animation: zoom 25s infinite;
+            transition: animation 650ms ease-in-out;
+            -webkit-transition: animation 650ms ease-in-out;
+            -moz-transition: animation 650ms ease-in-out;
+            -ms-transition: animation 650ms ease-in-out;
+            -o-transition: animation 650ms ease-in-out;
+        }
+    }
+    .top-full-opacity,
+    .top-half-opacity,
+    .bottom-full-opacity,
+    .bottom-half-opacity {
+        position: absolute;
+    }
+    .top-full-opacity {
+        top: 0;
+    }
+    .top-half-opacity {
+        top: 15px;
+        @include media-breakpoint-up(sm) {
+            top: 20px;
+        }
+        @include media-breakpoint-up(md) {
+            top: 25px;
+        }
+    }
+    .bottom-full-opacity {
+        bottom: 0;
+    }
+    .bottom-half-opacity {
+        bottom: 15px;
+        @include media-breakpoint-up(sm) {
+            bottom: 20px;
+        }
+        @include media-breakpoint-up(md) {
+            bottom: 25px;
+        }
+    }
+    .approach-content {
+        position: absolute;
+        top: 50%;
+        transform: translate(0, -50%);
+        .section-info {
+            width: 90%;
+            @include media-breakpoint-up(md) {
+                width: 80%;
+            }
+            @include media-breakpoint-up(lg) {
+                width: 60%;
+            }
+        }
+    }
+}

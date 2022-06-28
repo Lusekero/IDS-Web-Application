@@ -1,0 +1,39 @@
+@use '../custom' as *;
+@use '../components/mixins' as *;
+#why-us {
+    position: relative;
+    .reasons {
+        .card {
+            .icon {
+                background-color: $riseNshine;
+                border-radius: 50%;
+                -webkit-border-radius: 50%;
+                -moz-border-radius: 50%;
+                -ms-border-radius: 50%;
+                -o-border-radius: 50%;
+                img {
+                    @include cardIconTransition;
+                }
+            }
+            .card-body {
+                background: $gray-100;
+                @include cardHoverTransition;
+            }
+            &:hover {
+                .icon {
+                    img {
+                        @include cardIconRotate;
+                    }
+                }
+                .card-body {
+                    background-color: $primary;
+                    color: $gray-100;
+                }
+            }
+        }
+    }
+    svg {
+        position: absolute;
+        bottom: 0;
+    }
+}

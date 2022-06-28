@@ -1,0 +1,68 @@
+@use '../../custom' as *;
+@use '../../components/mixins' as *;
+#admin {
+    section.content {
+        .numbers {
+            .card {
+                position: relative;
+                background-color: $gray-100;
+                overflow: hidden;
+                border-radius: 10px;
+                -webkit-border-radius: 10px;
+                -moz-border-radius: 10px;
+                -ms-border-radius: 10px;
+                -o-border-radius: 10px;
+                .card-body {
+                    z-index: 2;
+                    span {
+                        color: $riseNshine;
+                        font-size: 1.175rem;
+                        font-weight: 700;
+                    }
+                    h5 {
+                        color: $primary;
+                        font-weight: 800;
+                    }
+                    span,
+                    h5,
+                    p,
+                    small {
+                        transition: color 650ms ease;
+                        -webkit-transition: color 650ms ease;
+                        -moz-transition: color 650ms ease;
+                        -ms-transition: color 650ms ease;
+                        -o-transition: color 650ms ease;
+                    }
+                }
+                .card-overlay {
+                    position: absolute;
+                    top: 96%;
+                    right: 0;
+                    bottom: 0;
+                    left: 0;
+                    background: $primary;
+                    z-index: 1;
+                    transition: top 650ms ease;
+                    -webkit-transition: top 650ms ease;
+                    -moz-transition: top 650ms ease;
+                    -ms-transition: top 650ms ease;
+                    -o-transition: top 650ms ease;
+                }
+                &:hover {
+                    .card-body {
+                        span,
+                        h5,
+                        p,
+                        small {
+                            color: $dark;
+                        }
+                    }
+                    .card-overlay {
+                        top: 0;
+                        background: $riseNshine;
+                    }
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,97 @@
+@use '../custom' as *;
+@use '../components/mixins' as *;
+.section-heading {
+    @include media-breakpoint-up(sm) {
+        width: 60vw;
+    }
+    @include media-breakpoint-up(md) {
+        width: 50vw;
+    }
+    @include media-breakpoint-up(lg) {
+        width: 40vw;
+    }
+    @include media-breakpoint-up(xl) {
+        width: 30vw;
+    }
+}
+
+.section-statement {
+    @include media-breakpoint-up(sm) {
+        width: 80vw;
+    }
+    @include media-breakpoint-up(lg) {
+        width: 60vw;
+    }
+}
+
+#get-in-touch {
+    @include gradient;
+    img {
+        @include infiniteAnimationDuration;
+    }
+    .contact h2 {
+        color: $gray-100;
+        font-weight: 700;
+        margin-bottom: auto;
+        @include media-breakpoint-up(lg) {
+            margin-bottom: 20px;
+        }
+    }
+}
+
+button.floating-button {
+    position: fixed;
+    top: auto;
+    width: 50px;
+    height: 50px;
+    z-index: 1 !important;
+    color: $gray-100;
+    font-size: 1.35rem;
+    font-weight: 800;
+    outline: none !important;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.3);
+    border: none !important;
+    border-radius: 50%;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    -ms-border-radius: 50%;
+    -o-border-radius: 50%;
+    transition: right 650ms ease, bottom 650ms ease, border-radius 650ms ease, background 0.3s ease, color 0.3s ease;
+    -webkit-transition: right 650ms ease, bottom 650ms ease, border-radius 650ms ease, background 0.3s ease, color 0.3s ease;
+    -moz-transition: right 650ms ease, bottom 650ms ease, border-radius 650ms ease, background 0.3s ease, color 0.3s ease;
+    -ms-transition: right 650ms ease, bottom 650ms ease, border-radius 650ms ease, background 0.3s ease, color 0.3s ease;
+    -o-transition: right 650ms ease, bottom 650ms ease, border-radius 650ms ease, background 0.3s ease, color 0.3s ease;
+    &.whatsapp {
+        right: 10px;
+        bottom: 10%;
+        background-color: #25d366 !important;
+        &.move-up {
+            bottom: 18%;
+            @include media-breakpoint-up(lg) {
+                bottom: 20%;
+            }
+        }
+    }
+    &.scroll-top {
+        right: -50px;
+        bottom: 8%;
+        @include gradient;
+        i {
+            transform: rotate(90deg);
+            -webkit-transform: rotate(90deg);
+            -moz-transform: rotate(90deg);
+            -ms-transform: rotate(90deg);
+            -o-transform: rotate(90deg);
+        }
+        &.show {
+            right: 10px;
+        }
+        &:hover {
+            background: $riseNshine !important;
+            color: $dark;
+        }
+    }
+}

@@ -1,0 +1,93 @@
+    @use '../custom' as *;
+    @use '../components/mixins' as *;
+    #testimonials {
+        .carousel {
+            /*position: relative;*/
+            /*.carousel-inner {
+            padding-bottom: 200px;
+            .carousel-item {
+                .carousel-caption {
+                    position: absolute;
+                    top: 80%;
+                    left: 50%;
+                    bottom: -10%;
+                    background: $white;
+                    height: 50vh;
+                    color: $body-color;
+                    border-radius: 6px;
+                    -webkit-border-radius: 6px;
+                    -moz-border-radius: 6px;
+                    -ms-border-radius: 6px;
+                    -o-border-radius: 6px;
+                    i {
+                        color: $primary;
+                        font-size: 2.5rem;
+                    }
+                }
+            }
+        }*/
+            .carousel-item {
+                position: relative;
+                padding-bottom: 150px;
+                .testimonial {
+                    &__card {
+                        padding: 30px 30px 100px;
+                        .quote {
+                            i {
+                                @include gradientText;
+                                font-size: 2.5rem;
+                            }
+                        }
+                        .rating {
+                            i {
+                                @include gradientText;
+                            }
+                        }
+                    }
+                    &__picture {
+                        position: absolute;
+                        bottom: 70px;
+                        width: 150px;
+                        max-width: 150px;
+                        overflow: hidden;
+                        border: 10px solid $gray-100;
+                        transform: translateX(-50%, 50%);
+                        -webkit-transform: translateX(-50%, 50%);
+                        -moz-transform: translateX(-50%, 50%);
+                        -ms-transform: translateX(-50%, 50%);
+                        -o-transform: translateX(-50%, 50%);
+                        border-radius: 50%;
+                        -webkit-border-radius: 50%;
+                        -moz-border-radius: 50%;
+                        -ms-border-radius: 50%;
+                        -o-border-radius: 50%;
+                    }
+                }
+            }
+            .carousel-indicators {
+                /*position: absolute;
+            right: auto;
+            left: 0;
+            bottom: 200px;
+            margin-left: 15px !important;*/
+                button {
+                    background: $riseNshine;
+                    height: 0.685rem;
+                    width: 0.685rem;
+                    background-clip: initial;
+                    box-sizing: border-box;
+                    margin: 0.5rem;
+                    border: none;
+                    border-radius: 4px;
+                    -webkit-border-radius: 4px;
+                    -moz-border-radius: 4px;
+                    -ms-border-radius: 4px;
+                    -o-border-radius: 4px;
+                    @include easeTransition;
+                    &.active {
+                        width: 2rem;
+                    }
+                }
+            }
+        }
+    }

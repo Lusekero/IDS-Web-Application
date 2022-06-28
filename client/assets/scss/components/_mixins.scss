@@ -1,0 +1,72 @@
+@use '../custom' as *;
+// GRADIENT MIXIN
+@mixin gradient {
+    background: linear-gradient(to right, rgba($secondary, 0.95), rgba($primary, 0.95)) !important;
+}
+
+// FIXED NAV GRADIENT MIXIN
+@mixin fixedNavGradient {
+    background: linear-gradient(to right, rgba($secondary, 1), rgba($primary, 1));
+}
+
+// GRADIENT TEXT MIXIN
+@mixin gradientText {
+    background-image: linear-gradient(to right, $secondary, $primary);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+// INFINITE AMIMATION DURATION
+@mixin infiniteAnimationDuration {
+    /* Aminate.css */
+    --animate-duration: 15s;
+}
+
+// TRANSITIONS MIXIN
+@mixin easeTransition {
+    transition: all $transitionFunction $transitionTime;
+    -webkit-transition: all $transitionFunction $transitionTime;
+    -moz-transition: all $transitionFunction $transitionTime;
+    -ms-transition: all $transitionFunction $transitionTime;
+    -o-transition: all $transitionFunction $transitionTime;
+}
+
+// CARD HOVER TRANSITION
+@mixin cardHoverTransition {
+    transition: background-color 1s ease, color 0.8s ease;
+    -webkit-transition: background-color 1s ease, color 0.8s ease;
+    -moz-transition: background-color 1s ease, color 0.8s ease;
+    -ms-transition: background-color 1s ease, color 0.8s ease;
+    -o-transition: background-color 1s ease, color 0.8s ease;
+}
+
+// CARD ICON ROTATE ANIMATION
+@mixin cardIconRotate {
+    transform: rotate(360deg);
+    -webkit-transform: rotate(360deg);
+    -moz-transform: rotate(360deg);
+    -ms-transform: rotate(360deg);
+    -o-transform: rotate(360deg);
+}
+
+// CARD ICON ROTATE TRANSITION
+@mixin cardIconTransition {
+    transition: transform 1.5s ease;
+    -webkit-transition: transform 1.5s ease;
+    -moz-transition: transform 1.5s ease;
+    -ms-transition: transform 1.5s ease;
+    -o-transition: transform 1.5s ease;
+}
+
+// ABSOLUTE CENTER POSITIONING
+@mixin absoluteCenter {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    -webkit-transform: translate(-50%, -50%);
+    -moz-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    -o-transform: translate(-50%, -50%);
+}
