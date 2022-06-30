@@ -24,212 +24,262 @@
                 Back
               </button>
             </div>
-            <form class="form-wrap mt-4" @submit.prevent>
-              <div class="row">
-                <div
-                  class="col-lg-4 d-flex justify-content-center justify-content-md-start justify-content-lg-center align-items-start"
-                >
-                  <div class="avator">
-                    <img
-                      src="../../../assets/images/users/profile.jpg"
-                      alt="user profile"
-                      class="img-fluid"
-                    />
+            <ValidationObserver v-slot="{ handleSubmit }">
+              <form
+                class="form-wrap mt-4"
+                @submit.prevent="handleSubmit(onSubmit)"
+              >
+                <div class="row">
+                  <div
+                    class="col-lg-4 d-flex justify-content-center justify-content-md-start justify-content-lg-center align-items-start"
+                  >
+                    <div class="avator">
+                      <img
+                        src="../../../assets/images/users/profile.jpg"
+                        alt="user profile"
+                        class="img-fluid"
+                      />
+                    </div>
                   </div>
-                </div>
-                <div class="col-lg-8 mt-4 mt-lg-0">
-                  <h5>All fileds with * are required.</h5>
-                  <div class="row g-3">
-                    <div class="col-sm-6 input-wrap">
-                      <input
-                        class="input"
-                        type="text"
-                        id="firstname"
-                        placeholder="First Name"
-                        v-model="form.firstname"
-                      />
-                      <label for="firstname">First Name*</label>
+                  <div class="col-lg-8 mt-4 mt-lg-0">
+                    <h5>All fileds with * are required.</h5>
+                    <div class="row g-3">
+                      <div class="col-sm-6 input-wrap">
+                        <ValidationProvider
+                          rules="required"
+                          v-slot="{ errors }"
+                        >
+                          <input
+                            class="input"
+                            :class="errors[0] && 'has-error'"
+                            type="text"
+                            id="firstname"
+                            placeholder="First Name"
+                            v-model="form.firstname"
+                          />
+                          <label
+                            for="firstname"
+                            :class="errors[0] && 'has-error'"
+                            >First Name*</label
+                          >
+                          <small>{{ errors[0] }}</small>
+                        </ValidationProvider>
+                      </div>
+                      <div class="col-sm-6 input-wrap">
+                        <ValidationProvider
+                          rules="required"
+                          v-slot="{ errors }"
+                        >
+                          <input
+                            class="input"
+                            :class="errors[0] && 'has-error'"
+                            type="text"
+                            id="lastname"
+                            placeholder="Last Name"
+                            v-model="form.lastname"
+                          />
+                          <label
+                            for="lastname"
+                            :class="errors[0] && 'has-error'"
+                            >Last Name*</label
+                          >
+                          <small>{{ errors[0] }}</small>
+                        </ValidationProvider>
+                      </div>
+                      <div class="col-sm-6 input-wrap">
+                        <ValidationProvider
+                          rules="required"
+                          v-slot="{ errors }"
+                        >
+                          <input
+                            class="input"
+                            :class="errors[0] && 'has-error'"
+                            type="text"
+                            id="job-position"
+                            placeholder="Job Position"
+                            v-model="form.job_position"
+                          />
+                          <label
+                            for="job-position"
+                            :class="errors[0] && 'has-error'"
+                            >Job Position*</label
+                          >
+                          <small>{{ errors[0] }}</small>
+                        </ValidationProvider>
+                      </div>
+                      <div class="col-sm-6 input-wrap">
+                        <ValidationProvider
+                          rules="required|email"
+                          v-slot="{ errors }"
+                        >
+                          <input
+                            class="input"
+                            :class="errors[0] && 'has-error'"
+                            type="email"
+                            id="email"
+                            placeholder="Your email address"
+                            v-model="form.email"
+                          />
+                          <label for="email" :class="errors[0] && 'has-error'"
+                            >Email*</label
+                          >
+                          <small>{{ errors[0] }}</small>
+                        </ValidationProvider>
+                      </div>
+                      <div class="col-sm-8 col-md-7 col-xl-6">
+                        <p class="text-justify fw-light">
+                          The Password must be between 6 to 10 characters long
+                          and must contain at least: 1 uppercase letter, 1
+                          lowercase letter, 1 number, and one special character
+                          (E.g. , . _ & ? etc)
+                        </p>
+                        <div class="col-12 input-wrap mb-2">
+                          <ValidationProvider
+                            name="Password"
+                            rules="required|min:6|max:15|check_password"
+                            v-slot="{ errors }"
+                          >
+                            <input
+                              class="input"
+                              :class="errors[0] && 'has-error'"
+                              type="password"
+                              id="password"
+                              placeholder="Your password"
+                              v-model="form.password"
+                            />
+                            <label
+                              for="password"
+                              :class="errors[0] && 'has-error'"
+                              >Password*</label
+                            >
+                            <small>{{ errors[0] }}</small>
+                          </ValidationProvider>
+                        </div>
+                        <div class="col-12 input-wrap">
+                          <ValidationProvider
+                            rules="required|password:@Password"
+                            v-slot="{ errors }"
+                          >
+                            <input
+                              class="input"
+                              :class="errors[0] && 'has-error'"
+                              type="password"
+                              id="confirm-password"
+                              placeholder="Confirm password"
+                              v-model="form.confirm_password"
+                            />
+                            <label
+                              for="confirm-password"
+                              :class="errors[0] && 'has-error'"
+                              >Confirm Password*</label
+                            >
+                            <small>{{ errors[0] }}</small>
+                          </ValidationProvider>
+                        </div>
+                      </div>
+                      <div class="col-sm-4 col-md-5 col-xl-6 mb-4 mb-md-auto">
+                        <ValidationProvider
+                          rules="required"
+                          v-slot="{ errors }"
+                        >
+                          <div
+                            class="col-12 access-privileges border rounded-3 p-3"
+                            :class="errors[0] && 'has-error'"
+                          >
+                            <h5
+                              class="heading"
+                              :class="errors[0] && 'has-error'"
+                            >
+                              Access Privileges*
+                            </h5>
+                            <div class="form-check">
+                              <input
+                                class="form-check-input"
+                                type="radio"
+                                name="accessPrivilege"
+                                id="adminRadio"
+                                value="Admin"
+                                v-model="form.access_privilege"
+                              />
+                              <label class="form-check-label" for="adminRadio">
+                                Admin
+                              </label>
+                            </div>
+                            <div class="form-check">
+                              <input
+                                class="form-check-input"
+                                type="radio"
+                                name="accessPrivilege"
+                                id="authorRadio"
+                                value="Author"
+                                v-model="form.access_privilege"
+                              />
+                              <label class="form-check-label" for="authorRadio">
+                                Author
+                              </label>
+                            </div>
+                            <div class="form-check">
+                              <input
+                                class="form-check-input"
+                                type="radio"
+                                name="accessPrivilege"
+                                id="guestRadio"
+                                value="Guest"
+                                v-model="form.access_privilege"
+                              />
+                              <label class="form-check-label" for="guestRadio">
+                                Guest
+                              </label>
+                            </div>
+                          </div>
+                          <small>{{ errors[0] }}</small>
+                        </ValidationProvider>
+                      </div>
                     </div>
-                    <div class="col-sm-6 input-wrap">
-                      <input
-                        class="input"
-                        type="text"
-                        id="lastname"
-                        placeholder="Last Name"
-                        v-model="form.lastname"
-                      />
-                      <label for="lastname">Last Name*</label>
-                    </div>
-                    <div class="col-sm-6 input-wrap">
-                      <input
-                        class="input"
-                        type="text"
-                        id="job-position"
-                        placeholder="Job Position"
-                        v-model="form.job_position"
-                      />
-                      <label for="job-position">Job Position*</label>
-                    </div>
-                    <div class="col-sm-6 input-wrap">
-                      <input
-                        class="input"
-                        type="text"
-                        id="department"
-                        placeholder="Department"
-                        value=""
-                      />
-                      <label for="department">Department*</label>
-                    </div>
-                    <div class="col-sm-6 input-wrap">
-                      <input
-                        class="input"
-                        type="email"
-                        id="email"
-                        placeholder="Your email address"
-                        v-model="form.email"
-                      />
-                      <label for="email">Email*</label>
-                    </div>
-                    <div class="col-sm-6 input-wrap">
-                      <input
-                        class="input"
-                        type="password"
-                        id="password"
-                        placeholder="Your password"
-                        v-model="form.password"
-                      />
-                      <label for="password">Password*</label>
-                    </div>
-                    <div class="col-sm-6 col-lg-7 col-xl-6 input-wrap">
-                      <input
-                        class="input"
-                        type="password"
-                        id="confirm-password"
-                        placeholder="Confirm password"
-                        v-model="form.confirm_password"
-                      />
-                      <label for="verify-password">Confirm Password*</label>
-                    </div>
-                    <div class="col-sm-6 col-lg-5 col-xl-6">
+                    <div class="row">
                       <div
-                        class="col-12 access-privileges border rounded-3 p-3 mb-4"
+                        class="btn-group d-flex justify-content-end align-items-end"
+                        role="group"
+                        aria-label="Basic example"
                       >
-                        <h5 class="heading">Access Privileges*</h5>
-                        <div class="form-check">
-                          <input
-                            class="form-check-input"
-                            type="radio"
-                            name="accessPrivilege"
-                            id="adminRadio"
-                            value="Admin"
-                            v-model="form.access_privilege"
-                          />
-                          <label class="form-check-label" for="adminRadio">
-                            Admin
-                          </label>
-                        </div>
-                        <div class="form-check">
-                          <input
-                            class="form-check-input"
-                            type="radio"
-                            name="accessPrivilege"
-                            id="authorRadio"
-                            value="Author"
-                            v-model="form.access_privilege"
-                          />
-                          <label class="form-check-label" for="authorRadio">
-                            Author
-                          </label>
-                        </div>
-                        <div class="form-check">
-                          <input
-                            class="form-check-input"
-                            type="radio"
-                            name="accessPrivilege"
-                            id="guestRadio"
-                            value="Guest"
-                            v-model="form.access_privilege"
-                          />
-                          <label class="form-check-label" for="guestRadio">
-                            Guest
-                          </label>
-                        </div>
-                        <!--<div class="form-check">
-                          <input
-                            type="checkbox"
-                            class="form-check-input"
-                            id="admin"
-                          />
-                          <label class="form-check-label" for="admin"
-                            >Admin</label
+                        <button
+                          type="submit"
+                          class="primary-button rounded-left animate__animated animate__fadeInLeft animate__delay-1s"
+                        >
+                          <span
+                            class="btn-icon bg-primary d-flex justify-content-center align-items-center"
+                            ><i class="bi bi-plus-lg"></i
+                          ></span>
+                          Add New
+                        </button>
+                        <button
+                          type="button"
+                          class="primary-button rounded-left d-none animate__animated animate__fadeInLeft animate__delay-1s"
+                        >
+                          <span
+                            class="btn-icon bg-primary d-flex justify-content-center align-items-center"
                           >
-                        </div>
-                        <div class="form-check">
-                          <input
-                            type="checkbox"
-                            class="form-check-input"
-                            id="author"
-                          />
-                          <label class="form-check-label" for="author"
-                            >Author</label
+                            <i class="bi bi-pencil-square"></i>
+                          </span>
+                          Update
+                        </button>
+                        <button
+                          type="button"
+                          class="primary-button rounded-right animate__animated animate__fadeInRight animate__delay-1s"
+                        >
+                          Delete
+                          <span
+                            class="btn-icon bg-danger d-flex justify-content-center align-items-center"
                           >
-                        </div>
-                        <div class="form-check">
-                          <input
-                            type="checkbox"
-                            class="form-check-input"
-                            id="guest"
-                          />
-                          <label class="form-check-label" for="guest"
-                            >Guest</label
-                          >
-                        </div>-->
+                            <i class="bi bi-trash"></i>
+                          </span>
+                        </button>
                       </div>
                     </div>
                   </div>
-                  <div class="row">
-                    <div
-                      class="btn-group d-flex justify-content-end align-items-end"
-                      role="group"
-                      aria-label="Basic example"
-                    >
-                      <button
-                        type="button"
-                        class="primary-button rounded-left animate__animated animate__fadeInLeft animate__delay-1s"
-                      >
-                        <span
-                          class="btn-icon bg-primary d-flex justify-content-center align-items-center"
-                          ><i class="bi bi-plus-lg"></i
-                        ></span>
-                        Add New
-                      </button>
-                      <button
-                        type="button"
-                        class="primary-button rounded-left d-none animate__animated animate__fadeInLeft animate__delay-1s"
-                      >
-                        <span
-                          class="btn-icon bg-primary d-flex justify-content-center align-items-center"
-                        >
-                          <i class="bi bi-pencil-square"></i>
-                        </span>
-                        Update
-                      </button>
-                      <button
-                        type="button"
-                        class="primary-button rounded-right animate__animated animate__fadeInRight animate__delay-1s"
-                      >
-                        Delete
-                        <span
-                          class="btn-icon bg-danger d-flex justify-content-center align-items-center"
-                        >
-                          <i class="bi bi-trash"></i>
-                        </span>
-                      </button>
-                    </div>
-                  </div>
                 </div>
-              </div>
-            </form>
+              </form>
+            </ValidationObserver>
           </div>
         </div>
       </div>
@@ -248,18 +298,28 @@ export default Vue.extend({
   setup() {
     // Form Data
     const form = reactive({
+      id: "",
       firstname: "",
       lastname: "",
       job_position: "",
-      department: "",
       email: "",
       password: "",
       confirm_password: "",
       access_privilege: "",
     });
 
+    const addNew = true;
+
+    // Form Submission
+    const onSubmit = () => {
+      if (addNew) {
+      } else {
+      }
+    };
+
     return {
       form,
+      onSubmit,
     };
   },
 });

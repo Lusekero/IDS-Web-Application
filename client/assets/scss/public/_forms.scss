@@ -11,6 +11,48 @@ form {
         -ms-border-radius: 50%;
         -o-border-radius: 50%;
     }
+    h5.has-error {
+        color: $red;
+    }
+    p {
+        position: relative;
+        color: $gray-400;
+        font-size: 0.945rem !important;
+        padding: 5px 15px;
+        border-radius: 6px;
+        -webkit-border-radius: 6px;
+        -moz-border-radius: 6px;
+        -ms-border-radius: 6px;
+        -o-border-radius: 6px;
+        @include easeTransition;
+        &::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: auto;
+            bottom: 0;
+            left: 0;
+            width: 5px;
+            z-index: -1;
+            background-color: $primary;
+            transition: all 0.3s ease-in-out;
+            -webkit-transition: all 0.3s ease-in-out;
+            -moz-transition: all 0.3s ease-in-out;
+            -ms-transition: all 0.3s ease-in-out;
+            -o-transition: all 0.3s ease-in-out;
+            border-radius: 6px;
+            -webkit-border-radius: 6px;
+            -moz-border-radius: 6px;
+            -ms-border-radius: 6px;
+            -o-border-radius: 6px;
+        }
+        &:hover {
+            color: $gray-100;
+            &::before {
+                width: 100%;
+            }
+        }
+    }
     .input-wrap {
         position: relative;
         input,
@@ -18,7 +60,7 @@ form {
             background: $gray-100;
             display: block;
             width: 100%;
-            padding: 20px 15px 12px;
+            padding: 20px 10px 12px;
             border: none !important;
             border-radius: 10px;
             -webkit-border-radius: 10px;
@@ -34,13 +76,16 @@ form {
                 color: $gray-400;
                 text-align: right;
                 font-style: italic;
-                margin-right: 20px !important;
+                padding-right: 5px !important;
+            }
+            &.has-error {
+                border: 1px solid $red !important;
             }
         }
         label {
             position: absolute;
             left: 20px;
-            bottom: 10px;
+            top: 10px;
             line-height: 2.5rem;
             cursor: text;
             text-transform: capitalize;
@@ -49,13 +94,16 @@ form {
             -moz-transition: transform 0.2s ease-in-out;
             -ms-transition: transform 0.2s ease-in-out;
             -o-transition: transform 0.2s ease-in-out;
+            &.has-error {
+                color: $red;
+            }
         }
         /*label[for="fullName"],
         label[for="email"],
-        label[for="subject"],*/
-        label[for="verify-password"] {
+        label[for="subject"],
+        label[for="confirm-password"] {
             top: 8px !important;
-        }
+        }*/
         label[for="message"] {
             top: 10px !important;
             line-height: 2.5rem !important;
@@ -75,5 +123,14 @@ form {
             -ms-transform: translateY(-15px);
             -o-transform: translateY(-15px);
         }
+    }
+    .access-privileges {
+        &.has-error {
+            border-color: $red !important;
+        }
+    }
+    small {
+        color: $red;
+        margin-left: 10px;
     }
 }
