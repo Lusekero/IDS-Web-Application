@@ -15,6 +15,7 @@
               <button
                 type="button"
                 class="rounded-pill btn-rounded animate__animated animate__fadeInRight animate__delay-1s"
+                @click="goBack"
               >
                 <span
                   class="btn-icon bg-primary d-flex justify-content-center align-items-center"
@@ -245,6 +246,7 @@
                         <button
                           type="submit"
                           class="primary-button rounded-left animate__animated animate__fadeInLeft animate__delay-1s"
+                          v-if="!route.params.id"
                         >
                           <span
                             class="btn-icon bg-primary d-flex justify-content-center align-items-center"
@@ -253,8 +255,9 @@
                           Add New
                         </button>
                         <button
-                          type="button"
-                          class="primary-button rounded-left d-none animate__animated animate__fadeInLeft animate__delay-1s"
+                          type="submit"
+                          class="primary-button rounded-left animate__animated animate__fadeInLeft animate__delay-1s"
+                          v-if="route.params.id"
                         >
                           <span
                             class="btn-icon bg-primary d-flex justify-content-center align-items-center"
@@ -290,7 +293,14 @@
 
 <script lang="ts">
 import Vue from "vue";
-import { ref, reactive } from "@nuxtjs/composition-api";
+import {
+  useRouter,
+  useRoute,
+  computed,
+  reactive,
+} from "@nuxtjs/composition-api";
+import { useGoBack } from "../../../composables/utilities/useGoBack";
+import { useSaveRecord } from "../../../composables/utilities/useSaveRecord";
 
 export default Vue.extend({
   name: "UserAccount",
@@ -299,27 +309,39 @@ export default Vue.extend({
     // Form Data
     const form = reactive({
       id: "",
-      firstname: "",
-      lastname: "",
-      job_position: "",
-      email: "",
-      password: "",
-      confirm_password: "",
-      access_privilege: "",
+      firstname: "" as string,
+      lastname: "" as string,
+      job_position: "" as string,
+      email: "" as string,
+      password: "" as string,
+      confirm_password: "" as string,
+      access_privilege: "" as string,
     });
 
-    const addNew = true;
+    const router = useRouter();
+    const route = useRoute();
+    const goBack = useGoBack();
+    const { createRecord, updateRecord } = useSaveRecord();
 
     // Form Submission
     const onSubmit = () => {
-      if (addNew) {
+      /*
+       * Check if route ID is empty
+       * If route ID is empty: Add New Record
+       * If route ID is not empty: Update the record with the route ID
+       */
+      if (!route.value.params.id) {
+        createRecord();
       } else {
+        updateRecord();
       }
     };
 
     return {
+      route,
       form,
       onSubmit,
+      goBack,
     };
   },
 });

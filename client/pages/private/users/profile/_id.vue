@@ -1,0 +1,35 @@
+<template>
+  <div>
+    <PrivateAuthUserAccount />
+  </div>
+</template>
+
+<script lang="ts">
+import Vue from "vue";
+
+export default Vue.extend({
+  validate({ params }) {
+    return /^\d+$/.test(params.id);
+  },
+  layout: "privateMaster",
+  name: "Profile",
+  head() {
+    return {
+      script: [
+        {
+          src: "../../../../js/adminSideBar.js",
+          type: "text/javascript",
+          body: true,
+        },
+        {
+          src: "../../../../js/adminMain.js",
+          type: "text/javascript",
+          body: true,
+        },
+      ],
+    };
+  },
+});
+</script>
+
+<style scoped></style>

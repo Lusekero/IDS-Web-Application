@@ -14,12 +14,12 @@ export default Vue.extend({
     return {
       script: [
         {
-          src: "../../js/adminSideBar.js",
+          src: "../../../../js/adminSideBar.js",
           type: "text/javascript",
           body: true,
         },
         {
-          src: "../../js/adminMain.js",
+          src: "../../../../js/adminMain.js",
           type: "text/javascript",
           body: true,
         },

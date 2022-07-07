@@ -16,6 +16,7 @@
                 <button
                   type="button"
                   class="primary-button rounded-left animate__animated animate__fadeInLeft animate__delay-1s"
+                  @click="pushRoute(url)"
                 >
                   <span
                     class="btn-icon bg-primary d-flex justify-content-center align-items-center"
@@ -64,6 +65,7 @@
                           type="button"
                           class="record-menu rounded-left"
                           title="View"
+                          @click="pushRoute(url + 1234567)"
                         >
                           <span
                             class="btn-icon d-flex justify-content-center align-items-center"
@@ -74,6 +76,7 @@
                           type="button"
                           class="record-menu rounded-right"
                           title="Delete"
+                          @click="deleteRecord"
                         >
                           <span
                             class="btn-icon d-flex justify-content-center align-items-center"
@@ -587,9 +590,25 @@
 
 <script lang="ts">
 import Vue from "vue";
+import { usePushRoute } from "../../../composables/utilities/usePushRoute";
+import { useDeleteRecord } from "../../../composables/utilities/useDeleteRecord";
 
 export default Vue.extend({
   name: "UserAccounts",
+  setup() {
+    // Base URL to user profile pages
+    const url: string = "/private/users/profile/";
+
+    /*
+    * COMPOSABLES
+    * Push Route
+    * Delete Record
+    */
+    const pushRoute = usePushRoute();
+    const deleteRecord = useDeleteRecord();
+
+    return { url, pushRoute, deleteRecord };
+  },
 });
 </script>
 

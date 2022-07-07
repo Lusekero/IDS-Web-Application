@@ -27,7 +27,8 @@
     "types": [
       "@nuxtjs/auth-next",
       "@nuxt/types",
-      "@types/node"
+      "@types/node",
+      "vue-sweetalert2"
     ]
   },
   "exclude": [

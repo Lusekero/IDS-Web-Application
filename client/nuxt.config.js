@@ -42,7 +42,13 @@ export default {
     // Modules: https://go.nuxtjs.dev/config-modules
     modules: [
         '@nuxtjs/axios',
-        '@nuxtjs/auth-next'
+        '@nuxtjs/auth-next',
+        [
+            'vue-sweetalert2/nuxt',
+            {
+                cancelButtonColor: '#475569'
+            }
+        ]
     ],
 
     // Authentication Strategy: https://auth.nuxtjs.org/providers/laravel-sanctum
